@@ -1,0 +1,168 @@
+INICIO
+    // Declaración de variables principales
+    courses_list = []
+    pila_historial = []
+    option = 0
+    continue = TRUE
+    
+    // Bucle principal del menú
+    MIENTRAS continue = TRUE HACER
+        
+        // Mostrar menú principal
+        IMPRIMIR "====== GESTOR DE NOTAS ACADÉMICAS ======"
+        IMPRIMIR "1. Registrar nuevo curso"
+        IMPRIMIR "2. Mostrar todos los cursos y notas"
+        IMPRIMIR "3. Calcular promedio general"
+        IMPRIMIR "4. Contar cursos aprobados y reprobados"
+        IMPRIMIR "5. Buscar curso por nombre (búsqueda lineal)"
+        IMPRIMIR "6. Actualizar nota de un curso"
+        IMPRIMIR "7. Eliminar un curso"
+        IMPRIMIR "8. Ordenar cursos por nota (ordenamiento burbuja)"
+        IMPRIMIR "9. Ordenar cursos por nombre (ordenamiento inserción)"
+        IMPRIMIR "10. Buscar curso por nombre (búsqueda binaria)"
+        IMPRIMIR "11. Simular cola de solicitudes de revisión"
+        IMPRIMIR "12. Mostrar historial de cambios (pila)"
+        IMPRIMIR "13. Salir"
+        IMPRIMIR "Seleccione una opción:"
+        
+        // Lectura de opción del usuario
+        LEER option
+        
+        // Evaluación de optiones usando condicionales
+        SI option = 1 ENTONCES
+            // <LÓGICA_REGISTRAR_CURSO>
+            IMPRIMIR "Llamando función registrar_curso()"
+            
+        SINO SI option = 2 ENTONCES
+            // <LÓGICA_MOSTRAR_CURSOS>
+            IMPRIMIR "Llamando función mostrar_todos_cursos()"
+            
+        SINO SI option = 3 ENTONCES
+            // <LÓGICA_CALCULAR_PROMEDIO>
+            IMPRIMIR "Llamando función calcular_promedio_general()"
+            
+        SINO SI option = 4 ENTONCES
+            // <LÓGICA_CONTAR_APROBADOS_REPROBADOS>
+            IMPRIMIR "Llamando función contar_aprobados_reprobados()"
+            
+        SINO SI option = 5 ENTONCES
+            // <LÓGICA_BÚSQUEDA_LINEAL>
+            IMPRIMIR "Llamando función buscar_curso_lineal()"
+            
+        SINO SI option = 6 ENTONCES
+            // <LÓGICA_ACTUALIZAR_NOTA>
+            IMPRIMIR "Llamando función actualizar_nota_curso()"
+            
+        SINO SI option = 7 ENTONCES
+            // <LÓGICA_ELIMINAR_CURSO>
+            IMPRIMIR "Llamando función eliminar_curso()"
+            
+        SINO SI option = 8 ENTONCES
+            // <LÓGICA_ORDENAR_POR_NOTA>
+            IMPRIMIR "Llamando función ordenar_por_nota_burbuja()"
+            
+        SINO SI option = 9 ENTONCES
+            // <LÓGICA_ORDENAR_POR_NOMBRE>
+            IMPRIMIR "Llamando función ordenar_por_nombre_insercion()"
+            
+        SINO SI option = 10 ENTONCES
+            // <LÓGICA_BÚSQUEDA_BINARIA>
+            IMPRIMIR "Llamando función buscar_curso_binario()"
+            
+        SINO SI option = 11 ENTONCES
+            // <LÓGICA_COLA_REVISIONES>
+            IMPRIMIR "Llamando función simular_cola_revisiones()"
+            
+        SINO SI option = 12 ENTONCES
+            // <LÓGICA_HISTORIAL_PILA>
+            IMPRIMIR "Llamando función mostrar_historial_cambios()"
+            
+        SINO SI option = 13 ENTONCES
+            // Salir del programa
+            IMPRIMIR "Gracias por usar el Gestor de Notas Académicas. ¡Hasta pronto!"
+            continue = FALSO
+            
+        SINO
+            // Opción inválida
+            IMPRIMIR "Opción no válida. Por favor, seleccione una opción del 1 al 13."
+            
+        FIN_SI
+        
+        // Pausa antes de mostrar el menú nuevamente (si no es salir)
+        SI continue = TRUE ENTONCES
+            IMPRIMIR "Presione Enter para continue..."
+            LEER pausa
+        FIN_SI
+        
+    FIN_MIENTRAS
+    
+FIN
+
+=====================================================
+ESTRUCTURA DE DATOS PRINCIPALES:
+=====================================================
+
+courses_list: Lista que contiene diccionarios con formato:
+    {
+        "nombre": "Nombre del curso",
+        "nota": valor_numerico
+    }
+
+pila_historial: Lista que funciona como pila LIFO para almacenar:
+    {
+        "accion": "eliminado" | "actualizado",
+        "curso": "Nombre del curso",
+        "nota_anterior": valor (si aplica),
+        "nota_nueva": valor (si aplica)
+    }
+
+cola_revisiones: Lista que funciona como cola FIFO para:
+    ["nombre_curso1", "nombre_curso2", ...]
+
+
+1. registrar_curso()
+   - <VALIDAR_NOMBRE_NO_VACIO>
+   - <VALIDAR_NOTA_ENTRE_0_Y_100>
+   - <AGREGAR_A_courses_list>
+
+2. mostrar_todos_cursos()
+   - <VERIFICAR_LISTA_NO_VACIA>
+   - <RECORRER_E_IMPRIMIR_CURSOS>
+
+3. calcular_promedio_general()
+   - <SUMAR_TODAS_LAS_NOTAS>
+   - <DIVIDIR_ENTRE_CANTIDAD_CURSOS>
+   - <REDONDEAR_A_DOS_DECIMALES>
+
+4. contar_aprobados_reprobados()
+   - <RECORRER_LISTA_CONTANDO_SEGUN_NOTA_MAYOR_O_IGUAL_60>
+
+5. buscar_curso_lineal()
+   - <RECORRER_SECUENCIALMENTE_COMPARANDO_NOMBRES>
+
+6. actualizar_nota_curso()
+   - <BUSCAR_CURSO_POR_NOMBRE>
+   - <VALIDAR_NUEVA_NOTA>
+   - <ACTUALIZAR_Y_AGREGAR_AL_HISTORIAL>
+
+7. eliminar_curso()
+   - <BUSCAR_CURSO_POR_NOMBRE>
+   - <SOLICITAR_CONFIRMACION>
+   - <ELIMINAR_Y_AGREGAR_AL_HISTORIAL>
+
+8. ordenar_por_nota_burbuja()
+   - <IMPLEMENTAR_ALGORITMO_BURBUJA_DESCENDENTE>
+
+9. ordenar_por_nombre_insercion()
+   - <IMPLEMENTAR_ALGORITMO_INSERCION_ALFABETICO>
+
+10. buscar_curso_binario()
+    - <VERIFICAR_LISTA_ORDENADA_POR_NOMBRE>
+    - <IMPLEMENTAR_BUSQUEDA_BINARIA>
+
+11. simular_cola_revisiones()
+    - <LLENAR_COLA_CON_NOMBRES_DE_CURSOS>
+    - <PROCESAR_COLA_FIFO>
+
+12. mostrar_historial_cambios()
+    - <MOSTRAR_PILA_EN_ORDEN_LIFO>
